@@ -4,9 +4,54 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bangers&display=swap"
+      rel="stylesheet"
+    />
     <title>Tic Tac Toe</title>
   </head>
   <body>
-    <script src="main.js"></script>
+    <h1 id="title">Tic-Tac-Toe</h1>
+    <form id="playerNamesForm">
+      <label for="playerOneName">Player 1:</label><br />
+      <input
+        type="text"
+        id="playerOneName"
+        name="playerOneName"
+        placeholder="Enter name"
+        required
+      /><br />
+      <label for="playerTwoName">Player 2:</label><br />
+      <input
+        type="text"
+        id="playerTwoName"
+        name="playerTwoName"
+        placeholder="Enter name"
+        required
+      /><br />
+      <button id="playBtn" type="submit">Play</button>
+    </form>
+
+    <div id="scores"></div>
+    <div id="gameBoard" class="container">
+      <div id="cellOne" class="box" data-row="0" data-column="0"></div>
+      <div id="cellTwo" class="box" data-row="0" data-column="1"></div>
+      <div id="cellThree" class="box" data-row="0" data-column="2"></div>
+      <div id="cellFour" class="box" data-row="1" data-column="0"></div>
+      <div id="cellFive" class="box" data-row="1" data-column="1"></div>
+      <div id="cellSix" class="box" data-row="1" data-column="2"></div>
+      <div id="cellSeven" class="box" data-row="2" data-column="0"></div>
+      <div id="cellEight" class="box" data-row="2" data-column="1"></div>
+      <div id="cellNine" class="box" data-row="2" data-column="2"></div>
+    </div>
+
+    <div id="gameFinishedButtons">
+      <button type="submit" id="playAgainBtn">Play Again?</button>
+      <button type="submit" id="resetGameBtn">Reset Game</button>
+    </div>
+
+    <script type="module" src="./main.js"></script>
   </body>
 </html>
