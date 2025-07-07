@@ -7,6 +7,7 @@ const boxes = document.querySelectorAll(".box");
 const gameFinishedButtons = document.getElementById("gameFinishedButtons");
 const playAgainBtn = document.getElementById("playAgainBtn");
 const resetGameBtn = document.getElementById("resetGameBtn");
+const playerNamesForm = document.getElementById("playerNamesForm");
 
 // DisplayController IIFE
 export const displayController = (function () {
@@ -95,6 +96,7 @@ export const displayController = (function () {
   };
 
   const showPlayerNamesForm = () => {
+    playerNamesForm.reset();
     displayElement(playerNamesForm, "block");
   };
   const hidePlayerNamesForm = () => {
