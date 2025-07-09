@@ -19,6 +19,7 @@ export const gameController = (() => {
 
     displayController.displayScores(players[0], players[1]);
     displayController.displayBoard();
+    displayController.displayPlayerTurn(activePlayer);
   };
 
   // Uses factory that creates two players
@@ -45,16 +46,23 @@ export const gameController = (() => {
       isGameRunning = false;
 
       if (outcome.draw) {
-        console.log("It's a draw!");
+        displayController.hidePlayerTurn();
+        displayController.displayGameResult(outcome);
         displayController.showGameFinishedButtons();
       } else {
         checkWinner(outcome);
+        displayController.displayWinningLine(
+          outcome.marker,
+          outcome.winningLine
+        );
+        displayController.hidePlayerTurn();
         displayController.showGameFinishedButtons();
       }
       return;
     }
     // Change Player
     activePlayer = switchActivePlayer(activePlayer);
+    displayController.displayPlayerTurn(activePlayer);
   };
 
   const switchActivePlayer = (activePlayer) => {
@@ -64,8 +72,11 @@ export const gameController = (() => {
   const checkWinner = (outcome) => {
     if (outcome.marker === players[0].marker) {
       players[0].updateScore();
+      displayController.displayGameResult(outcome, players[0]);
     } else if (outcome.marker === players[1].marker) {
       players[1].updateScore();
+
+      displayController.displayGameResult(outcome, players[1]);
     }
 
     displayController.displayScores(players[0], players[1]);
@@ -76,6 +87,10 @@ export const gameController = (() => {
     activePlayer = players[0];
     isGameRunning = true;
     displayController.displayBoard();
+
+    displayController.hideGameFinishedButtons();
+    displayController.hideGameResult();
+    displayController.hidePlayerTurn();
   };
 
   const totalReset = () => {
@@ -83,7 +98,9 @@ export const gameController = (() => {
     displayController.hideGameFinishedButtons();
     displayController.hideScores();
     displayController.hideGameBoard();
+    displayController.hideGameResult();
     displayController.showPlayerNamesForm();
+    displayController.hidePlayerTurn();
   };
 
   return { resetGame, startGame, handlePlayerMove, totalReset };

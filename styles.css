@@ -73,6 +73,7 @@ input {
   margin-bottom: 1.4rem;
   text-align: center;
   background-color: #2a3439;
+  letter-spacing: 0.1rem;
 }
 
 #playerOneName {
@@ -142,4 +143,27 @@ input {
   transition: all 0.1s ease-in-out;
   background-color: #3b454a;
   color: #fff;
+}
+
+#gameResultContainer {
+  display: none;
+  text-align: center;
+  font-size: 2.4rem;
+  letter-spacing: 0.1rem;
+  margin-bottom: 2rem;
+}
+
+#playerTurnContainer {
+  display: none;
+  text-align: center;
+  font-size: 2.4rem;
+  letter-spacing: 0.1rem;
+}
+
+.playerOneWinningLine {
+  border: 1px solid #ff007f;
+}
+
+.playerTwoWinningLine {
+  border: 1px solid #00f6ff;
 }
