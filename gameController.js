@@ -87,10 +87,9 @@ export const gameController = (() => {
     activePlayer = players[0];
     isGameRunning = true;
     displayController.displayBoard();
-
+    displayController.displayPlayerTurn(activePlayer);
     displayController.hideGameFinishedButtons();
     displayController.hideGameResult();
-    displayController.hidePlayerTurn();
   };
 
   const totalReset = () => {
